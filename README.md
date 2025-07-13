@@ -26,6 +26,28 @@ product-chatbot/
 ```
 ![App Screenshot](SS.png)
 ---
+##> **Note:**  
+> This project was developed and tested using **Python 3.10+** in **Visual Studio Code**.<br>
+> It is highly recommended to use **Python 3.8–3.10** for maximum compatibility.
+>
+> **Key library versions used:**
+> - Flask **2.3+**
+> - scikit-learn **1.3+**
+> - pandas **1.4+**
+> - joblib **1.2+**
+> - python-docx **0.8.11+**
+> - python-pptx **0.6.21+**
+> - PyPDF2 **3.0+**
+> - openpyxl **3.1+**
+> - xlrd **2.0.1+**
+> - striprtf **0.0.15+**
+> - odfpy **1.4.1+**
+>
+> **IDE:** Visual Studio Code (VS Code)  
+> **Test Environment:** Windows 10, local development server
+>
+> ⚠️ Ensure your Python version is compatible with these libraries.<br>
+> If you face any installation or runtime issues, use a virtual environment and refer to each package’s official documentation.
 
 ## ⚙️ Setup Instructions
 
