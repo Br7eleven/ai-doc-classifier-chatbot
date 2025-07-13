@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Document Classifier</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+      <h2>📄 AI Document Classifier Bot</h2>
+
+      <div class="chatbox" id="chatbox">
+        <div class="message bot">🧠 Hello! Upload a PDF, DOCX, PPTX or other supported file and I’ll tell you its category.</div>
+      </div>
+
+      <div class="upload-box">
+        <input type="file" id="fileInput" accept=".pdf,.docx,.pptx,.xlsx,.xls,.rtf,.odt,.ods">
+        <button onclick="uploadFile()">📤 Upload</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Created by Balaj Hussain | 📧 <a href="mailto:balajhussain1122@gmail.com">balajhussain1122@gmail.com</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function appendMessage(text, sender) {
+      const div = document.createElement("div");
+      div.className = `message ${sender}`;
+      div.innerText = text;
+      document.getElementById("chatbox").appendChild(div);
+      div.scrollIntoView({ behavior: "smooth" });
+    }
+
+    async function uploadFile() {
+      const fileInput = document.getElementById("fileInput");
+      if (!fileInput.files.length) {
+        appendMessage("⚠️ Please select a file before uploading.", "bot");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      appendMessage("📤 Uploading file...", "user");
+
+      try {
+        const res = await fetch("/upload", {
+          method: "POST",
+          body: formData
+        });
+        const data = await res.json();
+
+        if (data.category) {
+          appendMessage(`✅ Category: ${data.category} (Confidence: ${data.confidence})`, "bot");
+        } else {
+          appendMessage(`❌ Error: ${data.error || "Something went wrong"}`, "bot");
+        }
+      } catch (err) {
+        appendMessage("🚫 Could not connect to server.", "bot");
+      }
+    }
+  </script>
+</body>
+</html>
