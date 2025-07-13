@@ -24,7 +24,7 @@ product-chatbot/
 │
 └── README.md                  # Project documentation (this file)
 ```
-![App Screenshot](/ss.png)
+![App Screenshot](SS.png)
 ---
 
 ## ⚙️ Setup Instructions
