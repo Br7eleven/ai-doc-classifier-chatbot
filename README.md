@@ -55,7 +55,7 @@ product-chatbot/
 
    ```bash
    git clone https://github.com/your-username/product-chatbot.git
-   cd product-chatbot
+   cd ai-doc-classifier-chatbot-main
    ```
 
 2. **Create and activate a virtual environment:**
